@@ -1,0 +1,75 @@
+@import "../mixins/breakpoint";
+
+.main {
+  height: 100vh;
+}
+
+.entry-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__top {
+    display: none;
+  }
+
+  &__tile {
+    position: relative;
+    margin: 0 auto;
+    padding: 50px 85px 50px 115px;
+    width: 500px;
+
+    @include mobile-album {
+      padding: 30px;
+      width: 300px;
+    }
+  }
+}
+
+.entry-form {
+  &__title {
+    margin-bottom: 35px;
+
+    @include mobile-album {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__item {
+
+    &::before {
+      left: -18px;
+
+      @include mobile-album {
+        left: 0;
+        top: -23px;
+      }
+    }
+
+    &--login {
+      &::before {
+        content: 'Логин';
+      }
+    }
+
+    &--password {
+      &::before {
+        content: 'Пароль';
+      }
+    }
+  }
+
+  &__btn {
+    margin-right: 10px;
+  }
+}
+
+svg path {
+  fill: #116ACC;
+}
+
+#warn path{
+  fill:  #116ACC;
+}
+

@@ -1,0 +1,126 @@
+/* stylelint-disable */
+
+@mixin burger {
+  transition: transform 0.3s ease-out;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: var(--light-blue-color);
+  height: 50px;
+  transform: translateX(80%);
+
+  &.open {
+    transform: translateX(0%);
+    height: 50vh;
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    outline: none;
+    border: 3px solid transparent;
+    border-radius: 100%;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    -webkit-appearence: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: border-color 0.3s ease-out;
+
+
+    &:hover {
+      border-color: var(--white);
+    }
+
+    svg {
+        width: 150%;
+        stroke: var(--white);
+        stroke-width: 4px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        display: block;
+        position: absolute;
+        path {
+            transition: stroke-dasharray var(--duration, .85s) var(--easing, ease) var(--delay, 0s), stroke-dashoffset var(--duration, .85s) var(--easing, ease) var(--delay, 0s);
+            stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
+            stroke-dashoffset: var(--offset, 126px);
+            transform: translateZ(0);
+            &:nth-child(2) {
+                --duration: .7s;
+                --easing: ease-in;
+                --offset: 100px;
+                --array-2: 74px;
+            }
+            &:nth-child(3) {
+                --offset: 133px;
+                --array-2: 107px;
+            }
+        }
+    }
+
+    &.active {
+        svg {
+            path {
+                --offset: 57px;
+                &:nth-child(1),
+                &:nth-child(3) {
+                    --delay: .15s;
+                    --easing: cubic-bezier(.2, .4, .2, 1.1);
+                }
+                &:nth-child(2) {
+                    --duration: .4s;
+                    --offset: 2px;
+                    --array-1: 1px;
+                }
+                &:nth-child(3) {
+                    --offset: 58px;
+                }
+            }
+        }
+    animation: border-animation 0.8s linear;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    padding: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: var(--primary-color-light);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+
+    &.show {
+      transform: translateX(0%);
+    }
+  }
+
+  &__link {
+    color: var(--white);
+    font-size: 24px;
+  }
+
+}
+
+@keyframes border-animation {
+  0% {
+      transform: scale(100%);
+  }
+
+  0% {
+    transform: scale(120%);
+}
+
+  100% {
+    transform: scale(100%);
+  }
+}
+

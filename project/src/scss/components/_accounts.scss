@@ -1,0 +1,140 @@
+@import "../mixins/breakpoint";
+
+.accounts-page {
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    display: inline-block;
+    margin-right: 35px;
+
+    @include mobile-album {
+      flex-basis: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__wrapper {
+    overflow-y: auto;
+    height: 80%;
+    padding: 16px
+  }
+
+
+  &__grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 50px;
+
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile-album {
+      column-gap: 25px;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      justify-content: center;
+    }
+
+    @include big-desktop {
+      column-gap: 70px;
+    }
+  }
+
+  &__btn {
+    margin-left: auto;
+  }
+}
+
+.accounts-dropdown {
+  width: 300px;
+
+  @include mobile {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.account-tile {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  height: 156px;
+  border-radius: 9px;
+  box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 25%);
+  padding: 22px;
+
+
+  @include mobile {
+    margin: 0 auto;
+  }
+
+  &__top {
+    flex-basis: 100%;
+  }
+
+  &__bottom {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile-album {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__number {
+    margin-bottom: 9px;
+    font-family: var(--font-family-roboto, sans-serif);
+    font-size: 18px;
+    font-weight: 500;
+
+    @include mobile-album {
+      font-size: 16px;
+    }
+  }
+
+  &__balance {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  &__link {
+    grid-area: btn;
+    display: flex;
+    align-items: center;
+    padding: 5px 24px;
+
+    @include mobile-album {
+      padding: 5px 10px;
+    }
+  }
+}
+
+.transaction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 10px;
+  &__text {
+    display: inline-block;
+    font-weight: 700;
+  }
+
+  &__date {
+    display: inline-block;
+    font-weight: 400;
+  }
+}
+
+.grid-wrapper {
+  overflow-y: auto;
+  height: 80%;
+  padding: 16px
+}

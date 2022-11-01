@@ -1,0 +1,78 @@
+@import "../mixins/breakpoint";
+
+.hystory-page {
+  &__top {
+    flex-wrap: wrap;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 288px 288px auto;
+    row-gap: 50px;
+  }
+}
+
+.hystory-topline {
+  margin-bottom: 20px;
+}
+
+.hystory {
+  display: flex;
+  justify-content: space-between;
+
+  &__name {
+    font-family: 'WorkSans';
+    font-weight: 400;
+    font-size: 34px;
+
+    @include mobile-album {
+      margin-bottom: 20px;
+    }
+
+    @include mobile {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  &__tile {
+    padding: 25px 63px;
+
+    @include mobile-album {
+      padding: 25px 40px;
+    }
+
+    @include mobile {
+      padding: 25px 15px;
+    }
+  }
+
+  &-grid {
+    &__table {
+      padding-bottom: 40px;
+      overflow: hidden;
+    }
+  }
+}
+
+.chart {
+  @include mobile-album {
+    grid-template-columns: 1fr minmax(min-content, 50px);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hystory-hys {
+  @include mobile-album {
+    padding-bottom: 10px;
+    overflow-x: scroll;
+  }
+}
+
+.table {
+  margin-bottom: 20px;
+}

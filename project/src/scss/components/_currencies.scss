@@ -1,0 +1,264 @@
+@import "../mixins/breakpoint";
+
+.tile {
+  padding: 50px;
+
+  @include small-tablet {
+    padding: 35px;
+  }
+
+  &__title {
+
+    @include tablet {
+      font-size: 18px;
+    }
+  }
+}
+
+.currencies-page {
+  &__top {
+    @include mobile-album {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 50px;
+    row-gap: 45px;
+
+    @include mobile-album {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.currencies-grid {
+  &__yourCurrencies {
+    max-height: 850px;
+
+    & .tile__wrapper {
+      overflow: auto;
+    }
+  }
+
+  &__exchange {
+    @include big-desktop {
+      max-height: 300px;
+    }
+  }
+
+  &__exchRates {
+    grid-row: span 2;
+    max-height: 1235px;
+    padding-right: 25px;
+    overflow: hidden;
+
+    @include big-desktop {
+      max-height: 1150px;
+    }
+
+    @include mobile-album {
+      max-height: none;
+      order: 1;
+    }
+
+    & .tile__wrapper {
+      padding-right: 10px;
+      overflow: auto;
+    }
+  }
+}
+
+.cur-table {
+  padding-right: 2px;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__code {
+    position: relative;
+    flex-grow: 1;
+    margin-right: 10px;
+    overflow: hidden;
+    font-size: 20px;
+
+    @include mobile {
+      font-size: 14px;
+    }
+
+    &::after {
+      content: "................................................................................................................................................................................";
+      position: absolute;
+      margin-left: 10px;
+      top: 0;
+      color: inherit;
+    }
+  }
+
+  &__value {
+    margin-right: 15px;
+    font-family: var(--font-family-second);
+    font-size: 20px;
+    font-weight: 400;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  &__rate {
+    position: relative;
+  }
+}
+
+.rateSvg {
+  transform: translateY(-20%);
+  width: 20px;
+  height: 10px;
+}
+
+.currencies-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 25px;
+  margin-left: auto;
+  height: 100%;
+
+  @include big-desktop {
+    grid-template-areas:
+    "a b c"
+    "a b c";
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @include mobile-album {
+    grid-template-areas:
+    "a b c"
+    "a b c";
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    display: flex;
+    grid-template-areas: none;
+    grid-template-columns: auto;
+  }
+
+  &__item {
+    padding-left: 30px;
+    margin-right: 20px;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    &:not(:first-child) {
+      margin-right: 20px;
+    }
+
+    &::before {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    &--from {
+      &::before {
+        content: 'Из';
+      }
+    }
+
+    &--to {
+      &::before {
+        content: 'в';
+      }
+    }
+
+    &--amount {
+      padding-left: 60px;
+      grid-column-start: span 2;
+
+      &::before {
+        content: 'Сумма';
+      }
+
+      & .form__mark,
+      .form__handlers {
+        top: auto;
+        right: 0;
+        bottom: -28px;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__handlers,
+  &__mark {
+    top: -27px;
+  }
+
+  &__handlers {
+    right: -32px;
+    background-color: var(--white);
+  }
+
+  &__mark {
+    &:last-of-type{
+      top: auto
+    }
+  }
+
+  &__btn {
+    @include big-desktop {
+      grid-area: c;
+    }
+
+    @include mobile-album {
+      grid-area: c;
+    }
+
+    @include mobile {
+      grid-area: auto;
+    }
+  }
+}
+
+input#amount {
+  width: 100%;
+}
+
+.dropdown {
+  &__menu {
+    width: 85%;
+    bottom: 45px;
+  }
+}
+
+.spin-wrap {
+  position: absolute;
+  bottom: -35px;
+}
+
+.err-no-response {
+  position: absolute;
+  bottom: -30px;
+}
